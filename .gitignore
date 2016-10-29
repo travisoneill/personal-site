@@ -1,0 +1,16 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore js and node files
+bundle.js
+bundle.js.map
+node_modules/
+npm-debug.log
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+__pycache__
+*.pyc
+.DS_Store

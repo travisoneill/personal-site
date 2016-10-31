@@ -11,7 +11,6 @@ export default class Polygon{
     this.dtheta = randInt(10, 1);
     this.vx = randInt(5, -5) + .5;
     this.vy = randInt(5, -5) + .5;
-    // this.points = this.createPoints();
     this.tail = [];
   }
 
@@ -24,7 +23,6 @@ export default class Polygon{
       const y = this.y + (Math.sin(rad(theta)) * this.r);
       points.push(new Point(x, y));
     }
-    // console.log(this.x, this.y);
     return points;
   }
 
@@ -36,10 +34,7 @@ export default class Polygon{
     this.tail.push(this.createPoints());
     if(this.tail.length > 16){this.tail.shift();}
     for (var i = 0; i < this.tail.length; i++) {
-      // let hex = (i * 17).toString(16);
-      // if(i === 0){ hex = '00'; }
       ctx.strokeStyle = `rgba(217, 200, 147, ${i/16})`
-      // ctx.strokeStyle = '#' + hex + hex + hex;
       let shape = this.tail[i];
       let start = shape[shape.length - 1];
       ctx.beginPath()
@@ -53,20 +48,10 @@ export default class Polygon{
     this.step(canvasHeight, canvasWidth);
   }
 
-  // draw({ctx, inRad, canvasHeight, canvasWidth}){
-  //   this.points = this.createPoints();
-  //   ctx.fillStyle = '#ffffff';
-  //   ctx.strokeStyle = '#ffffff';
-  //   let start = this.points[this.points.length - 1];
-  //   ctx.beginPath();
-  //   ctx.moveTo(start.x * canvasWidth, start.y * canvasHeight);
-  //   for (var i = 0; i < this.points.length; i++) {
-  //     let point = this.points[i];
-  //     ctx.lineTo(point.x * canvasWidth, point.y * canvasHeight);
-  //   }
-  //   ctx.stroke();
-  //   this.step(canvasHeight, canvasWidth);
-  // }
+  static handleCollision(p1, p2){
+    [p1.vx, p2.vx] = [p2.vx, p1.vx];
+    [p1.vy, p2.vy] = [p2.vy, p1.vy];
+  }
 
   step(canvasHeight, canvasWidth){
     if(this.x + this.r > 1 || this.x - this.r < 0){

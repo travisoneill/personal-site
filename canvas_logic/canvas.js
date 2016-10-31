@@ -1,21 +1,30 @@
 import Polygon from './polygon_class';
 import * as data from './constants';
+import * as util from './util';
 
 function initialize(canvasEl){
   window.addEventListener('resize', resizeCanvas, false);
   data.canvas = canvasEl;
   data.ctx = canvasEl.getContext('2d');
-  // randomPolygons(10);
+  canvasEl.addEventListener('mousemove', mouseMove, false);
   randomPolygons(10);
   resizeCanvas();
 }
 
+function mouseMove(event){
+  data.mousePos.x = event.layerX;
+  data.mousePos.y = event.layerY;
+  console.log(data.mousePos);
+}
+
 function resizeCanvas(event){
+  const oldInterval = data.interval;
   data.canvasHeight = window.innerHeight;
   data.canvasWidth = window.innerWidth;
   data.canvas.height = data.canvasHeight;
   data.canvas.width = data.canvasWidth;
-  setInterval(drawPolygons, 100);
+  data.interval = setInterval(drawPolygons, 50);
+  if(oldInterval){clearInterval(oldInterval);}
 }
 
 function randomPolygons(n){
@@ -23,17 +32,18 @@ function randomPolygons(n){
     const params = {
       x: Math.random() * .9 + .05,
       y: Math.random() * .9 + .05,
-      r: data.randInt(50, 25),
-      n: data.randInt(8, 3)
+      r: util.randInt(50, 25),
+      n: util.randInt(8, 3)
     }
     data.polygons.push(new Polygon(params));
   }
 }
 
 function drawPolygons(){
-  data.ctx.fillStyle = '#000000';
-  data.ctx.rect(0, 0, data.canvasWidth, data.canvasHeight);
-  data.ctx.fill();
+  data.ctx.clearRect(0, 0, data.canvasWidth, data.canvasHeight);
+  // data.ctx.fillStyle = '#000000';
+  // data.ctx.rect(0, 0, data.canvasWidth, data.canvasHeight);
+  // data.ctx.fill();
   data.polygons.forEach( polygon => polygon.draw(data) );
 }
 

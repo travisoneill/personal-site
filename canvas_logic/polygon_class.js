@@ -1,5 +1,5 @@
 import Point from './point_class';
-import { randInt } from './constants';
+import { randInt } from './util';
 
 export default class Polygon{
   constructor({x, y, n, r}){
@@ -9,8 +9,8 @@ export default class Polygon{
     this.n = n;
     this.theta = 0;
     this.dtheta = randInt(10, 1);
-    this.vx = randInt(5, -5);
-    this.vy = randInt(5, -5);
+    this.vx = randInt(5, -5) + .5;
+    this.vy = randInt(5, -5) + .5;
     // this.points = this.createPoints();
     this.tail = [];
   }
@@ -36,9 +36,10 @@ export default class Polygon{
     this.tail.push(this.createPoints());
     if(this.tail.length > 16){this.tail.shift();}
     for (var i = 0; i < this.tail.length; i++) {
-      let hex = (i * 17).toString(16);
-      if(i === 0){ hex = '00'; }
-      ctx.strokeStyle = '#' + hex + hex + hex;
+      // let hex = (i * 17).toString(16);
+      // if(i === 0){ hex = '00'; }
+      ctx.strokeStyle = `rgba(217, 200, 147, ${i/16})`
+      // ctx.strokeStyle = '#' + hex + hex + hex;
       let shape = this.tail[i];
       let start = shape[shape.length - 1];
       ctx.beginPath()
@@ -77,6 +78,5 @@ export default class Polygon{
     this.x += this.vx / canvasWidth;
     this.y += this.vy / canvasHeight;
     this.theta = (this.theta + this.dtheta) % 360;
-    console.log(this.vx, this.vy);
   }
 }

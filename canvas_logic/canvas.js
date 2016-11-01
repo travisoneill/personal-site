@@ -28,23 +28,45 @@ function resizeCanvas(event){
 }
 
 function randomPolygons(n){
-  for (var i = 0; i < n; i++){
+  while(data.polygons.length < 10){
+    //generate random params
     const params = {
       x: Math.random() * .9 + .05,
       y: Math.random() * .9 + .05,
       r: util.randInt(50, 25),
       n: util.randInt(8, 3)
     }
-    data.polygons.push(new Polygon(params));
+    //create polygon
+    let polygon = new Polygon(params);
+    let valid = true;
+    //test for collison
+    for (var i = 0; i < data.polygons.length; i++) {
+      let p1 = data.polygons[i];
+      if(util.distance(polygon, p1) < polygon.r + p1.r){
+        valid = false;
+      }
+    }
+    if(!valid){continue;}
+    data.polygons.push(polygon);
   }
 }
 
 function drawPolygons(){
   data.ctx.clearRect(0, 0, data.canvasWidth, data.canvasHeight);
+  data.polygons.forEach( polygon => polygon.draw(data) );
   // data.ctx.fillStyle = '#000000';
   // data.ctx.rect(0, 0, data.canvasWidth, data.canvasHeight);
   // data.ctx.fill();
-  data.polygons.forEach( polygon => polygon.draw(data) );
+  // debugger;
+  for (var i = 0; i < data.polygons.length; i++) {
+    let p1 = data.polygons[i];
+    for (var j = i + 1; j < data.polygons.length; j++) {
+      let p2 = data.polygons[j];
+      if(util.distance(p1, p2) < p1.r + p2.r){
+        Polygon.handleCollision(p1, p2);
+      }
+    }
+  }
 }
 
 module.exports = {

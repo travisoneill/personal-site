@@ -56,10 +56,10 @@ export default class Polygon{
   //leading '_' in variable name indicates post-collision value
   static handleCollision(p1, p2){
     //2d vector math; vectors as arrays
-    const mag = vector => vector[0]*vector[0] + vector[1]*vector[1]; //magnitude of vector
+    const mag = v => Math.sqrt(v[0]*v[0] + v[1]*v[1]); //magnitude of vector
     const dot = (v1, v2) => v1[0]*v2[0] + v1[1]*v2[1]; //dot product of 2 vectors
-    const add = (v1, v2) => [v1[0]+v2[0], v1[1]+v1[1]]; //add 2 vectors
-    // const phi = (v1, v2) => dot(v1,v2) / (mag(v1) * mag(v2)); //angle between two vectors
+    const add = (v1, v2) => [v1[0]+v2[0], v1[1]+v2[1]]; //add 2 vectors
+    const phi = (v1, v2) => dot(v1,v2) / (mag(v1) * mag(v2)); //angle between two vectors
 
     //vectors from object velocities
     const v1 = [p1.vx, p1.vy],
@@ -68,14 +68,14 @@ export default class Polygon{
     const [x1, x2, y1, y2] = [p1.x, p2.x, p1.y, p2.y]; //centers of 2 polygons
 
     const N = [x2-x1, y2-y1]; //normal vector to direction of collision
-    const uN = N/mag(N); // unit normal
-    const uT = [-N[1], n[0]]; //unit tangent
+    const uN = N.map( n => n / mag(N)); // unit normal
+    const uT = [-uN[1], uN[0]]; //unit tangent
 
     //vectors projected to unit normal and unit tangent
     const v1n = dot(uN, v1),
           v2n = dot(uN, v2),
           v1t = dot(uT, v1),
-          v2t = dot(uN, v2);
+          v2t = dot(uT, v2);
 
     //1d elastic collision assuming equal mass
     const _v1t = v1t,
@@ -84,9 +84,14 @@ export default class Polygon{
           _v2n = v1n;
 
     //convert to vectors
-    _v1 = add([uN.map( n => n * _v1n)], [uT.map( n => n * _v1t )]);
-    _v2 = add([uN.map( n => n * _v2n)], [uT.map( n => n * _v2t )]);
+    const _v1 = add( uN.map( n => n * _v1n ), uT.map( n => n * _v1t ) );
+    const _v2 = add( uN.map( n => n * _v2n ), uT.map( n => n * _v2t ) );
 
+    let m1 = mag(v1) + mag(v2);
+    let m2 = mag(_v1) + mag(_v2);
+    console.log(m1 - m2);
+
+    // if( momentum1 !== momentum2 ){debugger;}
     p1.vx = _v1[0];
     p1.vy = _v1[1];
     p2.vx = _v2[0];

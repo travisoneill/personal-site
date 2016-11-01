@@ -6,5 +6,7 @@ module.exports = {
   points: [],
   polygons: [],
   interval: null,
-  mousePos: {x: null, y: null}
+  mousePos: {x: null, y: null},
+  mouseHist: [],
+  mouseV: null
 };

@@ -12,9 +12,14 @@ function initialize(canvasEl){
 }
 
 function mouseMove(event){
-  data.mousePos.x = event.layerX;
-  data.mousePos.y = event.layerY;
-  console.log(data.mousePos);
+  let mouse = {
+    x: event.layerX / data.canvasWidth,
+    y: event.layerY / data.canvasHeight
+  };
+  data.mouseHist.unshift(mouse);
+  if(data.mouseHist.length > 10){data.mouseHist.pop();}
+  data.mouseV = util.distance(data.mouseHist[0], data.mouseHist[9]);
+  // console.log(data.mouseV);
 }
 
 function resizeCanvas(event){
@@ -54,10 +59,22 @@ function randomPolygons(n){
 function drawPolygons(){
   data.ctx.clearRect(0, 0, data.canvasWidth, data.canvasHeight);
   data.polygons.forEach( polygon => polygon.draw(data) );
-  // data.ctx.fillStyle = '#000000';
-  // data.ctx.rect(0, 0, data.canvasWidth, data.canvasHeight);
-  // data.ctx.fill();
-  // debugger;
+  let mouseData = {
+    x: data.mouseHist[0].x,
+    y: data.mouseHist[0].y,
+    r: 50,
+    n: 3
+  }
+  let mouse = new Polygon(mouseData)
+  mouse.vx = (data.mouseHist[0].x - data.mouseHist[9].x) * data.canvasWidth / 20;
+  mouse.vy = (data.mouseHist[0].y - data.mouseHist[9].y) * data.canvasHeight / 20;
+  console.log(mouse.vx, mouse.vy)
+  data.polygons.push(mouse);
+  handleCollisions();
+  data.polygons.pop();
+}
+
+function handleCollisions(){
   for (var i = 0; i < data.polygons.length; i++) {
     let p1 = data.polygons[i];
     for (var j = i + 1; j < data.polygons.length; j++) {

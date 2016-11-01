@@ -89,7 +89,7 @@ export default class Polygon{
 
     let m1 = mag(v1) + mag(v2);
     let m2 = mag(_v1) + mag(_v2);
-    console.log(m1 - m2);
+    // console.log(m1 - m2);
 
     // if( momentum1 !== momentum2 ){debugger;}
     p1.vx = _v1[0];

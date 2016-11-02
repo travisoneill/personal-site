@@ -8,5 +8,6 @@ module.exports = {
   interval: null,
   mousePos: {x: null, y: null},
   mouseHist: [],
-  mouseV: null
+  mouseV: null,
+  mouse: null
 };

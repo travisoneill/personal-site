@@ -2,7 +2,7 @@ export default class Point{
   constructor(x, y){
     this.x = x;
     this.y = y;
-    this.r = 2
+    this.r = 2;
     this.vx = 0;
     this.vy = 0;
   }

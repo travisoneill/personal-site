@@ -96,7 +96,6 @@ export default class Polygon{
     p1.vy = _v1[1];
     p2.vx = _v2[0];
     p2.vy = _v2[1];
-
   }
 
   step(canvasHeight, canvasWidth){

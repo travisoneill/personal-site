@@ -9,5 +9,5 @@ module.exports = {
   mousePos: {x: null, y: null},
   mouseHist: [],
   mouseV: null,
-  mouse: null
+  mouse: {x: null, y: null}
 };

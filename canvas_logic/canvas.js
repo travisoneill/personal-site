@@ -7,6 +7,7 @@ function initialize(canvasEl){
   data.canvas = canvasEl;
   data.ctx = canvasEl.getContext('2d');
   canvasEl.addEventListener('mousemove', mouseMove, false);
+  for (var i = 0; i < 10; i++) { data.mouseHist.push({x: 0, y: 0});}
   randomPolygons(10);
   resizeCanvas();
 }
@@ -75,6 +76,7 @@ function drawPolygons(){
   //   n: 3
   // }
   // let mouse = new Polygon(mouseData)
+  // debugger;
   data.mouse.x = data.mouseHist[0].x;
   data.mouse.y = data.mouseHist[0].y;
   data.mouse.vx = (data.mouseHist[0].x - data.mouseHist[9].x) * data.canvasWidth / 10;

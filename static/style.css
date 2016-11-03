@@ -1,7 +1,68 @@
+html {
+  font-size: 10px;
+}
+
 canvas {
   background: #333636 -webkit-linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
   background: #333636 -moz-linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
   background: #333636 -ms-linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
   background: #333636 -o-linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
   background: #333636 linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
+}
+
+.splash{
+  display: flex;
+  justify-content: center;
+}
+
+.title-container{
+  position: absolute;
+  top: 25%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 7rem;
+  color: rgba(217, 200, 147, 1);
+}
+
+.title.row {
+  display: flex;
+}
+
+.right{
+
+}
+
+.left{
+  color: white;
+}
+
+.bottom {
+  font-size: 4rem;
+  color: #ADADAD;
+  display: flex;
+  justify-content: center;
+}
+
+.contact {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.projects {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.skills {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
 }

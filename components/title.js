@@ -3,8 +3,17 @@ import React, { Component } from 'react';
 export const Title = () => {
   return(
     <div className='title-container'>
-      <span className='title-left'></span>
-      <span className='title-right'></span>
+    <div className='title row'>
+      <span className='title left'>TRAVIS</span>
+      <span className='title right'>ONEILL</span><br/>
+    </div>
+    <span className='title bottom'>Full Stack Developer</span>
     </div>
   )
 };
+
+
+
+
+// <div className='title-name'>
+// </div>

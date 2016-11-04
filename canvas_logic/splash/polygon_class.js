@@ -1,3 +1,4 @@
+'use strict';
 import Point from './point_class';
 import { randInt } from '../util';
 

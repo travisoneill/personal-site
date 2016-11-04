@@ -1,3 +1,4 @@
+'use strict';
 const distance = (obj1, obj2) => {
   const x1 = obj1.x,
         x2 = obj2.x,

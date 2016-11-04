@@ -1,3 +1,4 @@
+'use strict';
 import Polygon from './polygon_class';
 import { Splash } from '../constants';
 import * as util from '../util';

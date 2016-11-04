@@ -1,3 +1,4 @@
+'use strict';
 import * as util from '../util';
 import Fractal from './fractal_class';
 import { FractalData } from '../constants';

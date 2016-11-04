@@ -1,7 +1,8 @@
 import React from 'react';
 import { Canvas } from './canvas';
-import { Skills } from './skills';
+import { About } from './about';
 import { Projects } from './projects';
+import { Skills } from './skills';
 import { Contact } from './contact';
 
 export const App = () => {

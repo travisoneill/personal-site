@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+
 import { Canvas } from './canvas';
 import { About } from './about';
 import { Projects } from './projects';

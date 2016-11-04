@@ -7,10 +7,12 @@ export const Splash = {
   points: [],
   polygons: [],
   interval: null,
+  listener: null,
   mousePos: {x: null, y: null},
   mouseHist: [],
   mouseV: null,
-  mouse: {x: null, y: null}
+  mouse: {x: null, y: null},
+  running: false
 };
 
 export const FractalData = {
@@ -19,5 +21,7 @@ export const FractalData = {
   canvasHeight: null,
   canvasWidth: null,
   interval: null,
-  fractal: null
+  fractal: null,
+  listener: null,
+  running: false
 };

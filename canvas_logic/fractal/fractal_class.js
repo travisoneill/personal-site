@@ -23,10 +23,10 @@ export default class Fractal {
   }
 
   draw({ctx, canvasHeight, canvasWidth}){
-    const center = { x: ~~(canvasWidth/2), y: ~~(canvasHeight/2) };
+    const center = { x: ~~(canvasWidth/2), y: ~~(canvasHeight * 0.6) };
     const point = this.binary(this.iter);
     ctx.fillStyle = `rgba(217, 200, 147, ${1 - this.iter/65536})`;
-    ctx.fillRect(center.x + point.x, center.y - point.y, 1, 1);
+    ctx.fillRect(center.x + point.x, center.y + point.y, 1, 1);
     this.iter++;
   }
 

@@ -6,13 +6,25 @@ import * as util from '../util';
 const data = Splash;
 
 export function initializeSplash(canvasEl){
-  window.addEventListener('resize', resizeCanvas, false);
-  data.canvas = canvasEl;
-  data.ctx = canvasEl.getContext('2d');
-  canvasEl.addEventListener('mousemove', mouseMove, false);
+  if(data.running){ return; }
+  data.listener = window.addEventListener('resize', resizeCanvas, false);
+  data.canvas = canvasEl || data.canvas;
+  data.ctx = data.canvas.getContext('2d');
+  data.running = true;
+  // canvasEl.addEventListener('mousemove', mouseMove, false);
   for (var i = 0; i < 10; i++) { data.mouseHist.push({x: 0, y: 0});}
   randomPolygons(10);
   resizeCanvas();
+}
+
+export function stopSplash(){
+  if(!data.running){ return; }
+  if(data.interval){ clearInterval(data.interval); }
+  data.interval = null;
+  data.fractal = null;
+  window.removeEventListener('resize', resizeCanvas, false);
+  data.listener = null;
+  data.running = false;
 }
 
 function mouseMove(event){
@@ -46,7 +58,7 @@ function resizeCanvas(event){
 }
 
 function randomPolygons(n){
-  while(data.polygons.length < 10){
+  while(data.polygons.length < n){
     //generate random params
     const params = {
       x: Math.random() * .9 + .05,

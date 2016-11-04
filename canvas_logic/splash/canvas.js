@@ -1,8 +1,10 @@
 import Polygon from './polygon_class';
-import * as data from './constants';
-import * as util from './util';
+import { Splash } from '../constants';
+import * as util from '../util';
 
-function initialize(canvasEl){
+const data = Splash;
+
+export function initializeSplash(canvasEl){
   window.addEventListener('resize', resizeCanvas, false);
   data.canvas = canvasEl;
   data.ctx = canvasEl.getContext('2d');
@@ -97,8 +99,4 @@ function handleCollisions(){
       }
     }
   }
-}
-
-module.exports = {
-  initialize: initialize
 }

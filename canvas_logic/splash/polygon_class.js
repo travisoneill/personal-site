@@ -1,5 +1,5 @@
 import Point from './point_class';
-import { randInt } from './util';
+import { randInt } from '../util';
 
 export default class Polygon{
   constructor({x, y, n, r}){

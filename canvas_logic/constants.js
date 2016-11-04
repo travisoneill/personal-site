@@ -1,4 +1,4 @@
-module.exports = {
+export const Splash = {
   canvas: null,
   ctx: null,
   canvasHeight: null,
@@ -10,4 +10,11 @@ module.exports = {
   mouseHist: [],
   mouseV: null,
   mouse: {x: null, y: null}
+};
+
+export const Fractal = {
+  canvas: null,
+  ctx: null,
+  canvasHeight: null,
+  canvasWidth: null
 };

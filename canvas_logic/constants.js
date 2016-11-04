@@ -12,9 +12,11 @@ export const Splash = {
   mouse: {x: null, y: null}
 };
 
-export const Fractal = {
+export const FractalData = {
   canvas: null,
   ctx: null,
   canvasHeight: null,
-  canvasWidth: null
+  canvasWidth: null,
+  interval: null,
+  fractal: null
 };

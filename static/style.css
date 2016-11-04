@@ -66,3 +66,21 @@ canvas {
   width: 100vw;
   display: flex;
 }
+
+.about {
+  height: 100vh;
+  width: 100vw;
+  display: flex;  
+}
+
+.icon-bar {
+  position: absolute;
+  bottom: 20%;
+  display: flex;
+  width: 20%;
+  height: 5%;
+}
+
+.social-share-icon {
+  flex: 1;
+}

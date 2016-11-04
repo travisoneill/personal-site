@@ -8,8 +8,9 @@ export const App = () => {
   return(
     <div className='app-container'>
       <Canvas/>
-      <Skills/>
+      <About/>
       <Projects/>
+      <Skills/>
       <Contact/>
     </div>
   );

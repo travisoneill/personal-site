@@ -107,7 +107,7 @@ function handleCollisions(){
     let p1 = data.polygons[i];
     for (var j = i + 1; j < data.polygons.length; j++) {
       let p2 = data.polygons[j];
-      if(util.distance(p1, p2) < p1.r + p2.r){
+      if (util.distance(p1, p2) < p1.r + p2.r) {
         Polygon.handleCollision(p1, p2);
       }
     }

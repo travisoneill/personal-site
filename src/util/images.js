@@ -1,3 +1,4 @@
+
 const urls = {
   about_background: 'http://res.cloudinary.com/devbook/image/upload/v1478304925/network_xwupq3.jpg'
 };
@@ -20,4 +21,4 @@ const makeURL = ({ type, w, h, params }) => {
 // let u = makeURL({ type: 'about_background', h: 100, w: 200, params: 'o_20' });
 // let u = makeURL({ type: 'about_background'});
 
-console.log(u);
+// console.log(u);

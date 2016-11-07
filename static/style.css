@@ -30,6 +30,14 @@ canvas {
   background: #333636 linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
 }
 
+.nav-icon {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  width: 5%;
+  z-index: 1;
+}
+
 /*splash page*/
 
 .splash {

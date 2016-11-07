@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
-import { Github, Linkedin, AngelList } from './svg';
+import { Github, Linkedin, AngelList} from './svg';
 
 export const IconBar = () => {
   return(

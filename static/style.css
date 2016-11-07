@@ -6,6 +6,22 @@ body {
   background: #4B5E6A;
 }
 
+/*remove default button styling*/
+button{
+  margin      : 0;
+  padding     : 0;
+  border      : 0;
+  background  : transparent;
+  font-family : inherit;
+  font-size   : 1em;
+  cursor      : pointer;
+}
+
+button::-moz-focus-inner{
+  padding : 0;
+  border  : 0;
+}
+
 canvas {
   background: #333636 -webkit-linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
   background: #333636 -moz-linear-gradient(to bottom, #333636 45%, #4B5E6A 97.5%);
@@ -67,10 +83,14 @@ canvas {
 .social-share-icon {
   flex: 1;
   padding: 3%;
+  cursor: pointer;
+  fill: rgba(217, 200, 147, 1);
+  transition: flex 0.5s;
 }
 
 .social-share-icon:hover {
   flex: 2;
+  /*transition: flex 0.5s;*/
 }
 
 /*contact page*/
@@ -95,7 +115,21 @@ canvas {
 }
 
 .button-container {
-  display flex;
+  display: flex;
+  padding: 5px;
+}
+
+.project-selector {
+  padding: 5px;
+  color: rgba(217, 200, 147, 1);
+  font-size: 1.5rem;
+  border: solid 1px;
+  cursor: pointer;
+}
+
+.project-selector:hover {
+  color: #333636;
+  background: rgba(217, 200, 147, 1);
 }
 
 /*skills page*/

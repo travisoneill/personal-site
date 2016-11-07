@@ -1,44 +1,64 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
-export const ProjectIndex = () => {
-  const keywords = {
-    paratrooper: ['javascript', 'frontend', 'canvas', 'game'],
-    algoArena: ['backend', 'frontend', 'python', 'ruby', 'react', 'flask', 'javascript', 'nodejs'],
-    eosRedux: ['backend', 'javascript', 'opensource', 'nodejs', 'python', 'flask', 'nodejs'],
-    devbook: ['backend', 'frontend', 'rails', 'ruby', 'javascript', 'react', 'sql'],
-    rails: ['opensource', 'ruby', 'rails', 'backend', 'sql'],
-    gcp: ['opensource', 'python', 'flask'],
-    uberSlack: ['ruby', 'rails', 'opensource'],
-    briansGuitar: ['javascript', 'react', 'frontend', 'redux']
-  };
+const keywords = {
+  paratrooper: ['javascript', 'frontend', 'canvas', 'game'],
+  algoArena: ['backend', 'frontend', 'python', 'ruby', 'react', 'flask', 'javascript', 'nodejs'],
+  eosRedux: ['backend', 'javascript', 'opensource', 'nodejs', 'python', 'flask', 'nodejs'],
+  devbook: ['backend', 'frontend', 'rails', 'ruby', 'javascript', 'react', 'sql'],
+  rails: ['opensource', 'ruby', 'rails', 'backend', 'sql'],
+  gcp: ['opensource', 'python', 'flask', 'nodejs', 'javascript'],
+  uberSlack: ['ruby', 'rails', 'opensource'],
+  briansGuitar: ['javascript', 'react', 'frontend', 'redux']
+};
 
-  const selected = [];
-
-  const handleClick = (event) => {
-    event.preventDefault();
-    console.log('CLICK');
+export class ProjectIndex extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { selected: [] };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  return(
-    <div className='project-index'>
-      <div className='button-container'>
-        <button className='project-selector' id='javascript' onClick={handleClick}>JavaScript</button>
-        <button className='project-selector' id='ruby' onClick={handleClick}>Ruby/Rails</button>
-        <button className='project-selector' id='python' onClick={handleClick}>Python</button>
-        <button className='project-selector' id='frontend' onClick={handleClick}>Front End</button>
-        <button className='project-selector' id='backend' onClick={handleClick}>Back End</button>
-        <button className='project-selector' id='opensource' onClick={handleClick}>Open Source</button>
-        <button className='project-selector' id='react' onClick={handleClick}>React</button>
-        <button className='project-selector' id='nodejs' onClick={handleClick}>Node.js</button>
+  handleClick(event) {
+    event.preventDefault();
+    let category = event.target.id
+    let temp = [];
+    let selected = this.state.selected.slice();
+    for (var i = 0; i < selected.length; i++) {
+      if(selected[i] !== category){ temp.push(selected[i]); }
+    }
+    if(selected.length === temp.length){ temp.push(category); }
+    this.setState({selected: temp});
+  }
+
+  render() {
+    return(
+      <div className='project-index'>
+        <div className='button-container'>
+          <div className='project-selector' id='javascript' onClick={this.handleClick}>JavaScript</div>
+          <div className='project-selector' id='ruby' onClick={this.handleClick}>Ruby/Rails</div>
+          <div className='project-selector' id='python' onClick={this.handleClick}>Python</div>
+          <div className='project-selector' id='frontend' onClick={this.handleClick}>Front End</div>
+          <div className='project-selector' id='backend' onClick={this.handleClick}>Back End</div>
+          <div className='project-selector' id='opensource' onClick={this.handleClick}>Open Source</div>
+          <div className='project-selector' id='react' onClick={this.handleClick}>React</div>
+          <div className='project-selector' id='nodejs' onClick={this.handleClick}>Node.js</div>
+        </div>
+        <ProjectList projects={this.state.selected} />
       </div>
-      <ProjectList projects='selected' />
+    );
+  }
+}
+
+const ProjectList = ({ projects }) => {
+  const list = projects.map( (p, i) => <ProjectListItem projectName={p} key={i} /> );
+  return(
+    <div>
+      {list}
     </div>
   );
 };
 
-const ProjectList = ({a, b, c}) => {
-  return(
-    <div>PROJECT LIST</div>
-  );
-};
+const ProjectListItem = ({ projectName }) => {
+  return <div>{projectName}</div>;
+}

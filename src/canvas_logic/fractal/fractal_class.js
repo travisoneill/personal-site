@@ -23,12 +23,34 @@ export default class Fractal {
   }
 
   draw({ctx, canvasHeight, canvasWidth}){
-    const center = { x: ~~(canvasWidth/2), y: ~~(canvasHeight * 0.6) };
-    const point = this.binary(this.iter);
-    ctx.fillStyle = `rgba(217, 200, 147, ${1 - this.iter/65536})`;
-    ctx.fillRect(center.x + point.x, center.y + point.y, 1, 1);
-    this.iter++;
+    const center = { x: ~~(canvasWidth/2), y: ~~(canvasHeight * 0.7) };
+    for (var i = 0; i < 4; i++) {
+      const point = this.binary(this.iter);
+      ctx.fillStyle = `rgba(217, 200, 147, ${1 - this.iter/65536})`;
+      ctx.fillRect(center.x + point.x, center.y + point.y, 1, 1);
+      this.iter++;
+    }
   }
+
+  // binary(num) {
+  //   let b = math.complex(1, 1);
+  //   let c = math.complex(0, 0);
+  //   let p = math.complex(1, 0);
+  //   while(num > 0){
+  //     if(num % 2){ c = math.add(c, p); }
+  //     num = ~~(num / 2);
+  //     p = math.multiply(p, b);
+  //   }
+  //   return { x: c.re, y: c.im };
+  // }
+  //
+  // draw({ctx, canvasHeight, canvasWidth}){
+  //   const center = { x: ~~(canvasWidth/2), y: ~~(canvasHeight * 0.7) };
+  //   const point = this.binary(this.iter);
+  //   ctx.fillStyle = `rgba(217, 200, 147, ${1 - this.iter/65536})`;
+  //   ctx.fillRect(center.x + point.x, center.y + point.y, 1, 1);
+  //   this.iter++;
+  // }
 
 }
 

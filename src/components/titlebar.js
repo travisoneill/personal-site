@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Titlebar = () => {
+export const Titlebar = () => {
   return(
-    <div></div>
+    <div className='titlebar floating' id='titlebar'></div>
   );
 };

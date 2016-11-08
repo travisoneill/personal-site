@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import initializeCanvasElements from './src/canvas_logic/canvas_control';
+import { initializeCanvasElements, initializeTitlebar, handleScroll } from './src/util/scroll_event_handling';
 import { App } from './src/components/app';
 
 document.addEventListener('DOMContentLoaded', () => {
   const entrypoint = document.getElementById('entrypoint');
   ReactDOM.render( <App/>, entrypoint );
+  window.addEventListener('scroll', handleScroll);
   initializeCanvasElements();
+  initializeTitlebar();
 });

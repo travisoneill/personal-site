@@ -24,15 +24,10 @@ export const handleScroll = () => {
   else { initializeSplash(); }
   //handle titlebar positioning
   const titlebar = Titlebar.element;
-  debugger;
-  // console.log(page);
-  // debugger;
   if( page > 0.94 && titlebar.className.match('floating')) {
     titlebar.className = 'titlebar fixed';
   }
   if(page < 0.94 && titlebar.className.match('fixed')) {
     titlebar.className = 'titlebar floating';
   }
-
-
 };

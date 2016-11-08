@@ -35,7 +35,7 @@ canvas {
   top: 1%;
   right: 2%;
   width: 5%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .titlebar {
@@ -52,14 +52,16 @@ canvas {
   position: fixed;
   top: 0px;
   z-index: 1;
-  border: 1px solid;
+  border: 1px solid rgba(217, 200, 147, 1);
+  background: #333636;
 }
 
 /*splash page*/
 
 .splash {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
   width: 100vw;
 }
@@ -103,6 +105,7 @@ canvas {
   bottom: 10%;
   display: flex;
   width: 20%;
+  height: 10%;
 }
 
 .social-share-icon {
@@ -114,7 +117,7 @@ canvas {
 }
 
 .social-share-icon:hover {
-  flex: 2;
+  flex: 2.5;
   /*transition: flex 0.5s;*/
 }
 
@@ -168,7 +171,10 @@ canvas {
 .about {
   height: 100vh;
   width: 100vw;
+  position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   background: url('http://res.cloudinary.com/devbook/image/upload/v1478304925/network_xwupq3.jpg') no-repeat fixed;
 }
 

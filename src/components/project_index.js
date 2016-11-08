@@ -38,17 +38,17 @@ export class ProjectIndex extends Component {
           <div className='project-selector' id='javascript' onClick={this.handleClick}>JavaScript</div>
           <div className='project-selector' id='ruby' onClick={this.handleClick}>Ruby/Rails</div>
           <div className='project-selector' id='python' onClick={this.handleClick}>Python</div>
-          <div className='project-selector' id='frontend' onClick={this.handleClick}>Front End</div>
-          <div className='project-selector' id='backend' onClick={this.handleClick}>Back End</div>
-          <div className='project-selector' id='opensource' onClick={this.handleClick}>Open Source</div>
           <div className='project-selector' id='react' onClick={this.handleClick}>React</div>
           <div className='project-selector' id='nodejs' onClick={this.handleClick}>Node.js</div>
+          <div className='project-selector' id='opensource' onClick={this.handleClick}>Open Source</div>
         </div>
         <ProjectList projects={this.state.selected} />
       </div>
     );
   }
 }
+// <div className='project-selector' id='frontend' onClick={this.handleClick}>Front End</div>
+// <div className='project-selector' id='backend' onClick={this.handleClick}>Back End</div>
 
 const ProjectList = ({ projects }) => {
   const list = projects.map( (p, i) => <ProjectListItem projectName={p} key={i} /> );

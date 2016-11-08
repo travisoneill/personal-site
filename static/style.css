@@ -32,9 +32,10 @@ canvas {
 
 .nav-icon {
   position: fixed;
-  top: 1%;
-  right: 2%;
-  width: 5%;
+  top: 1.25%;
+  right: 1.5%;
+  height: 6vh;
+  width: 6vh;
   z-index: 2;
 }
 
@@ -140,6 +141,8 @@ canvas {
 .project-index {
   position: absolute;
   top: 20%;
+  display: flex;
+  flex-direction: column;
 }
 
 .button-container {
@@ -158,6 +161,14 @@ canvas {
 .project-selector:hover {
   color: #333636;
   background: rgba(217, 200, 147, 1);
+}
+
+.project-list {
+  display: flex;
+}
+
+.project-container {
+  width: 33%;
 }
 
 /*skills page*/

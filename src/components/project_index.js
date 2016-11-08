@@ -1,5 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
+import { AlgoArena } from './projects/algo_arena';
+import { Paratrooper } from './projects/paratrooper';
+import { EosRedux } from './projects/eos_redux';
 
 const keywords = {
   paratrooper: ['javascript', 'frontend', 'canvas', 'game'],
@@ -15,20 +18,24 @@ const keywords = {
 export class ProjectIndex extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: [] };
+    this.state = { selected: ['paratrooper', 'algoArena', 'eosRedux'] };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(event) {
-    event.preventDefault();
-    let category = event.target.id
-    let temp = [];
-    let selected = this.state.selected.slice();
-    for (var i = 0; i < selected.length; i++) {
-      if(selected[i] !== category){ temp.push(selected[i]); }
-    }
-    if(selected.length === temp.length){ temp.push(category); }
-    this.setState({selected: temp});
+    // event.preventDefault();
+    // let category = event.target.id
+    // let temp = [];
+    // let selected = this.state.selected.slice();
+    // for (var i = 0; i < selected.length; i++) {
+    //   if(selected[i] !== category){ temp.push(selected[i]); }
+    // }
+    // if(selected.length === temp.length){ temp.push(category); }
+    // this.setState({selected: temp});
+  }
+
+  mapper(name){
+
   }
 
   render() {
@@ -51,14 +58,19 @@ export class ProjectIndex extends Component {
 // <div className='project-selector' id='backend' onClick={this.handleClick}>Back End</div>
 
 const ProjectList = ({ projects }) => {
-  const list = projects.map( (p, i) => <ProjectListItem projectName={p} key={i} /> );
+  const components = {
+    algoArena: AlgoArena,
+    eosRedux: EosRedux,
+    paratrooper: Paratrooper
+  };
+  // const list = projects.map( project => components[project] );
+  // console.log(components['eosRedux']);
+  debugger;
   return(
-    <div>
-      {list}
+    <div className='project-list'>
+      <AlgoArena/>
+      <Paratrooper/>
+      <EosRedux/>
     </div>
   );
 };
-
-const ProjectListItem = ({ projectName }) => {
-  return <div>{projectName}</div>;
-}

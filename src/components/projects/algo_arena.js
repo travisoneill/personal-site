@@ -25,7 +25,6 @@ export class AlgoArena extends Component {
   }
 
   render(){
-    debugger;
     return(
       <div className='project-container algo-arena'>
         <img className='project-image algo-arena' src={this.urls[this.state.idx]} alt='Algo Arena Screenshot' />

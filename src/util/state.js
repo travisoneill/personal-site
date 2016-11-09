@@ -3,5 +3,6 @@ export const Titlebar = {
 }
 
 export const Dropdown = {
-  element: null
+  element: null,
+  visible: false
 }

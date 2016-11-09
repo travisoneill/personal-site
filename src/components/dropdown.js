@@ -1,6 +1,13 @@
 import React from 'react';
-import { Dropdown } from '../util/state';
 
-const Dropdown = () => {
-  return <div className='dropdown' id='dropdown'></div>;
-}
+export const Dropdown = () => {
+  return(
+    <div className='dropdown' id='dropdown'>
+      <div className='dropdown-item'>TITLE</div>
+      <div className='dropdown-item'>PROJECTS</div>
+      <div className='dropdown-item'>OPEN SOURCE</div>
+      <div className='dropdown-item'>FRACTAL</div>
+      <div className='dropdown-item'>CONTACT</div>
+    </div>
+  );
+};

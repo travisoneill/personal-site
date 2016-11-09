@@ -57,6 +57,18 @@ canvas {
   background: #333636;
 }
 
+.dropdown {
+  
+}
+
+.dropdown-item {
+
+}
+
+.highlighted {
+
+}
+
 /*splash page*/
 
 .splash {
@@ -194,8 +206,14 @@ canvas {
   background: url('http://res.cloudinary.com/devbook/image/upload/v1478304925/network_xwupq3.jpg') no-repeat fixed;
 }
 
+
+/*util*/
 .overlay {
   height: 100%;
   width: 100%;
   background: rgba(51, 54, 54, 0.8);
+}
+
+.hidden {
+  display: none;
 }

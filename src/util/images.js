@@ -8,6 +8,21 @@ export const urls = {
     'http://res.cloudinary.com/devbook/image/upload/v1478553898/ss2_vxgohd.png',
     'http://res.cloudinary.com/devbook/image/upload/v1478553941/aa-backend1_acfgmf.png',
     'http://res.cloudinary.com/devbook/image/upload/v1478553853/ss3_oidtep.png'
+  ],
+  paratrooper: [
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/pt1_gpokd5.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/pt2_cmxblb.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/pt4_yao6tq.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/pt6_tdpl4d.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/pt5_kh1hkl.png'
+  ],
+  eosRedux: [
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/eos0_ktzknv.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/eos5_thyvnd.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/eos2_ubq3zd.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/eos3_u2keyj.png',
+    'http://res.cloudinary.com/devbook/image/upload/v1478641329/eos1_ousoqx.png',
+
   ]
 };
 

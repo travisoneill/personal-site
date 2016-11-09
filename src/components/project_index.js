@@ -1,8 +1,9 @@
 'use strict';
 import React, { Component } from 'react';
-import { AlgoArena } from './projects/algo_arena';
-import { Paratrooper } from './projects/paratrooper';
-import { EosRedux } from './projects/eos_redux';
+// import { AlgoArena } from './projects/algo_arena';
+// import { Paratrooper } from './projects/paratrooper';
+// import { EosRedux } from './projects/eos_redux';
+import { ProjectDisplay } from './projects/index';
 
 const keywords = {
   paratrooper: ['javascript', 'frontend', 'canvas', 'game'],
@@ -58,19 +59,12 @@ export class ProjectIndex extends Component {
 // <div className='project-selector' id='backend' onClick={this.handleClick}>Back End</div>
 
 const ProjectList = ({ projects }) => {
-  const components = {
-    algoArena: AlgoArena,
-    eosRedux: EosRedux,
-    paratrooper: Paratrooper
-  };
-  // const list = projects.map( project => components[project] );
+  const list = projects.map( (project, idx) => <ProjectDisplay project={project} key={idx} /> );
   // console.log(components['eosRedux']);
-  debugger;
+  // debugger;
   return(
     <div className='project-list'>
-      <AlgoArena/>
-      <Paratrooper/>
-      <EosRedux/>
+      {list}
     </div>
   );
 };

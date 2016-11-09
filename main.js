@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { initializeCanvasElements, initializeTitlebar, handleScroll } from './src/util/scroll_event_handling';
+import { initializeClickElements, handleClick } from './src/util/click_event_handling';
 import { App } from './src/components/app';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,4 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScroll);
   initializeCanvasElements();
   initializeTitlebar();
+  document.addEventListener('click', handleClick);
+  initializeClickElements();
 });

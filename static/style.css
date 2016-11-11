@@ -1,9 +1,12 @@
 html {
   font-size: 10px;
+  font-family: 'Raleway', sans-serif;
+
 }
 
 body {
   background: #4B5E6A;
+  margin: 0px;
 }
 
 /*remove default button styling*/
@@ -39,6 +42,11 @@ canvas {
   z-index: 2;
 }
 
+.rotate90{
+  transform: rotate(90deg);
+  transition: transform 0.5s
+}
+
 .titlebar {
   width: 100%;
   height: 7%;
@@ -58,11 +66,21 @@ canvas {
 }
 
 .dropdown {
-  
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 200%;
+  right: 0%;
+  top: 100%;
 }
 
 .dropdown-item {
-
+  color: rgba(217, 200, 147, 1);
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2em;
+  cursor: pointer;
 }
 
 .highlighted {

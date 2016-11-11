@@ -7,7 +7,7 @@ export const initializeClickElements = () => {
 const toggleVisible = (element) => {
   let className = element.className.replace(' hidden', '');
   if(className === element.className){ className += ' hidden'; }
-  debugger;
+  // debugger;
   element.className = className;
 }
 
@@ -18,11 +18,12 @@ const hide = (element) => {
 }
 
 export const handleClick = (event) => {
-  console.log(event.target);
-  const element = event.target.id;
+  // console.log(elem);
+  const path = event.path.map(n => n.id);
+  const target = event.target.id;
   const dropdown = Dropdown.element;
   //handle dropdown menu
-  debugger;
-  if (element === 'nav-icon'){ toggleVisible(dropdown); }
-  else if (element !== 'dropdown') { hide(dropdown) }
+  // debugger;
+  if (path.includes('nav-svg')) { toggleVisible(dropdown); }
+  else if (!path.includes('dropdown')) { hide(dropdown); }
 }

@@ -1,5 +1,7 @@
 export const Titlebar = {
-  element: null
+  element: null,
+  animation: null,
+  interval: null
 }
 
 export const Dropdown = {

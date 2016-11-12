@@ -1,7 +1,7 @@
 html {
   font-size: 10px;
   font-family: 'Raleway', sans-serif;
-
+  color: rgba(217, 200, 147, 1);
 }
 
 body {
@@ -50,7 +50,8 @@ canvas {
 .titlebar {
   width: 100%;
   height: 7%;
-
+  display: flex;
+  align-items: center;
 }
 
 .floating {
@@ -67,6 +68,12 @@ canvas {
   border: 1px solid rgba(217, 200, 147, 1);
   background: #333636;
   transition: border 1s, background 1s, position 1s;
+}
+
+.name-animation {
+  margin-left: 2%;
+  font-weight: 100;
+  font-size: 2.5rem;
 }
 
 .dropdown {

@@ -10,7 +10,31 @@ export const initializeCanvasElements = () => {
 
 export const initializeTitlebar = () => {
   Titlebar.element = document.querySelector('#titlebar');
+  Titlebar.animation = Titlebar.element.querySelector('#name-animation');
 }
+
+const initializeNameAnimation = () => {
+  const text = 'TRAVISONEILL';
+  let count = 0;
+
+  const step = () => {
+    if(count === text.length){
+      clearInterval(Titlebar.interval);
+      Titlebar.interval = null;
+    }
+    Titlebar.animation.innerHTML = text.slice(0, count);
+    count++;
+  }
+
+  Titlebar.interval = setInterval(step, 100);
+}
+
+const stopNameAnimation = () => {
+  clearInterval(Titlebar.interval);
+  Titlebar.interval = null;
+  Titlebar.animation.innerHTML = '';
+}
+
 
 //handling of scroll position
 export const handleScroll = () => {
@@ -22,12 +46,14 @@ export const handleScroll = () => {
   else { initializeFractal(); }
   if(page > 1.2) { stopSplash(); }
   else { initializeSplash(); }
-  //handle titlebar positioning
+  //handle titlebar positioning and name animation
   const titlebar = Titlebar.element;
   if( page > 1 && titlebar.className.match('floating')) {
     titlebar.className = 'titlebar fixed';
+    initializeNameAnimation();
   }
   if(page < 1 && titlebar.className.match('fixed')) {
     titlebar.className = 'titlebar floating';
+    stopNameAnimation();
   }
 };

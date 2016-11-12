@@ -50,11 +50,15 @@ canvas {
 .titlebar {
   width: 100%;
   height: 7%;
+
 }
 
 .floating {
   position: absolute;
   bottom: -1.5%;
+  border: 1px solid rgba(217, 200, 147, 0);
+  transition: border 1s;
+  transition: background 1s;
 }
 
 .fixed {
@@ -63,6 +67,7 @@ canvas {
   z-index: 1;
   border: 1px solid rgba(217, 200, 147, 1);
   background: #333636;
+  transition: border 1s;
 }
 
 .dropdown {

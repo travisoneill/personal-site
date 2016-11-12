@@ -18,16 +18,16 @@ export const handleScroll = () => {
   let height = window.innerHeight;
   let page = top / height;
   //choose which canvasses should render based on scroll height
-  if(page < 0.5 || page > 3.5) { stopFractal(); }
+  if(page < 0.2 || page > 3.5) { stopFractal(); }
   else { initializeFractal(); }
-  if(page > 1.5) { stopSplash(); }
+  if(page > 1.2) { stopSplash(); }
   else { initializeSplash(); }
   //handle titlebar positioning
   const titlebar = Titlebar.element;
-  if( page > 0.94 && titlebar.className.match('floating')) {
+  if( page > 1 && titlebar.className.match('floating')) {
     titlebar.className = 'titlebar fixed';
   }
-  if(page < 0.94 && titlebar.className.match('fixed')) {
+  if(page < 1 && titlebar.className.match('fixed')) {
     titlebar.className = 'titlebar floating';
   }
 };

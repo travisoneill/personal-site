@@ -217,16 +217,21 @@ canvas {
 }
 
 .project-index {
+  width: 100%;
+  height: 100%;
+}
+/*.project-index {
   position: absolute;
   top: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+}*/
 
 .button-container {
   display: flex;
   padding: 5px;
+  position: absolute;
 }
 
 .project-selector {
@@ -243,12 +248,23 @@ canvas {
 }
 
 .project-list {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  width: 50%;
+  height: 100%;
+}
+
+.project-text {
+
+}
+
+.column {
+  
 }
 
 .project-container {
-  width: 33%;
+  width: 100%;
+  height: 100%;
 }
 
 .project-image {

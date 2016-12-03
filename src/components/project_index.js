@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 // import { Paratrooper } from './projects/paratrooper';
 // import { EosRedux } from './projects/eos_redux';
 import { ProjectDisplay } from './projects/index';
+import { ProjectDescription } from './projects/description';
 
 const keywords = {
   paratrooper: ['javascript', 'frontend', 'canvas', 'game'],
@@ -25,7 +26,12 @@ export class ProjectIndex extends Component {
   render() {
     return(
       <div className='project-index'>
-        <ProjectList projects={this.state.selected} />
+        <div className='column'>
+          <ProjectList projects={this.state.selected} />
+        </div>
+        <div className='column'>
+          <ProjectText projects={this.state.selected} />
+        </div>  
       </div>
     );
   }
@@ -35,6 +41,17 @@ export class ProjectIndex extends Component {
 
 const ProjectList = ({ projects }) => {
   const list = projects.map( (project, idx) => <ProjectDisplay project={project} key={idx} /> );
+  // console.log(components['eosRedux']);
+  // debugger;
+  return(
+    <div className='project-list'>
+      {list}
+    </div>
+  );
+};
+
+const ProjectText = ({ projects }) => {
+  const list = projects.map( (project, idx) => <ProjectDescription project={project} key={idx} /> );
   // console.log(components['eosRedux']);
   // debugger;
   return(

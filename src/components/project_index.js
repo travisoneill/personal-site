@@ -20,36 +20,11 @@ export class ProjectIndex extends Component {
   constructor(props) {
     super(props);
     this.state = { selected: ['paratrooper', 'algoArena', 'eosRedux'] };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(event) {
-    // event.preventDefault();
-    // let category = event.target.id
-    // let temp = [];
-    // let selected = this.state.selected.slice();
-    // for (var i = 0; i < selected.length; i++) {
-    //   if(selected[i] !== category){ temp.push(selected[i]); }
-    // }
-    // if(selected.length === temp.length){ temp.push(category); }
-    // this.setState({selected: temp});
-  }
-
-  mapper(name){
-
   }
 
   render() {
     return(
       <div className='project-index'>
-        <div className='button-container'>
-          <div className='project-selector' id='javascript' onClick={this.handleClick}>JavaScript</div>
-          <div className='project-selector' id='ruby' onClick={this.handleClick}>Ruby/Rails</div>
-          <div className='project-selector' id='python' onClick={this.handleClick}>Python</div>
-          <div className='project-selector' id='react' onClick={this.handleClick}>React</div>
-          <div className='project-selector' id='nodejs' onClick={this.handleClick}>Node.js</div>
-          <div className='project-selector' id='opensource' onClick={this.handleClick}>Open Source</div>
-        </div>
         <ProjectList projects={this.state.selected} />
       </div>
     );

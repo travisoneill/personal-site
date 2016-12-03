@@ -2,8 +2,8 @@
 import Point from './point_class';
 import { randInt } from '../util';
 
-export default class Polygon{
-  constructor({x, y, n, r}){
+export default class Polygon {
+  constructor({x, y, n, r}) {
     this.x = x;
     this.y = y; //position
     this.r = r / 1000; //radius
@@ -16,7 +16,8 @@ export default class Polygon{
   }
 
   //creates points of polygon based on circle or radius this.r
-  createPoints(){
+  createPoints() {
+    const ratio = window.innerHeight / window.innerWidth;
     let points = [];
     const rad = deg => Math.PI * deg / 180;
     const step = 360 / this.n;

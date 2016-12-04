@@ -10,7 +10,6 @@ export const Dropdown = {
 }
 
 export const ProjectPosition = {
-  next: null,
-  active: null,
-  previous: null,
+  down: [],
+  up: []
 }

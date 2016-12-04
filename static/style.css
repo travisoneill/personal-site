@@ -219,6 +219,7 @@ canvas {
 .project-index {
   width: 100%;
   height: 100%;
+  display: flex;
 }
 /*.project-index {
   position: absolute;
@@ -250,7 +251,7 @@ canvas {
 .project-list {
   /* display: flex; */
   /* flex-wrap: wrap; */
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 
@@ -259,12 +260,43 @@ canvas {
 }
 
 .column {
-  
+  width: 50%;
+  position: relative;
 }
 
 .project-container {
   width: 100%;
   height: 100%;
+  position: absolute;
+}
+
+.project-text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.up1 {
+  bottom: 100%
+}
+
+.up2 {
+
+}
+
+.down1 {
+  top: 100%
+}
+
+.down2 {
+
+}
+
+.active {
+  top: 0%
 }
 
 .project-image {

@@ -20,18 +20,31 @@ const keywords = {
 export class ProjectIndex extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: ['paratrooper', 'algoArena', 'eosRedux'] };
+    this.state = { idx: 0 };
+  }
+
+  rotate(){
+    let idx = (this.state.idx + 1) % 3
+    this.setState({idx: idx});
   }
 
   render() {
+    const order = ['paratrooper', 'algoArena', 'eosRedux']
+    const divOrder = {
+      paratrooper: ['eosRedux', 'paratrooper', 'algoArena'],
+      algoArena: ['paratrooper', 'algoArena', 'eosRedux'],
+      eosRedux: ['algoArena', 'eosRedux', 'paratrooper']
+    }
+    let active = order[this.state.idx];
+    let arrangement = divOrder[active]
     return(
       <div className='project-index'>
         <div className='column'>
-          <ProjectList projects={this.state.selected} />
+          <ProjectList projects={arrangement} />
         </div>
         <div className='column'>
-          <ProjectText projects={this.state.selected} />
-        </div>  
+          <ProjectText projects={arrangement} />
+        </div>
       </div>
     );
   }
@@ -40,9 +53,14 @@ export class ProjectIndex extends Component {
 // <div className='project-selector' id='backend' onClick={this.handleClick}>Back End</div>
 
 const ProjectList = ({ projects }) => {
-  const list = projects.map( (project, idx) => <ProjectDisplay project={project} key={idx} /> );
+  const list = projects.map( (project, idx) => <ProjectDisplay project={project} place={idx} key={idx} /> );
   // console.log(components['eosRedux']);
   // debugger;
+  const position = {
+    0: 'up1',
+    1: 'active',
+    2: 'down1'
+  }
   return(
     <div className='project-list'>
       {list}
@@ -51,7 +69,12 @@ const ProjectList = ({ projects }) => {
 };
 
 const ProjectText = ({ projects }) => {
-  const list = projects.map( (project, idx) => <ProjectDescription project={project} key={idx} /> );
+  const position = {
+    0: 'down1',
+    1: 'active',
+    2: 'up1'
+  }
+  const list = projects.map( (project, idx) => <ProjectDescription project={project} place={idx} key={idx} /> );
   // console.log(components['eosRedux']);
   // debugger;
   return(

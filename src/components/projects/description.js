@@ -39,8 +39,13 @@ export class ProjectDescription extends Component {
   // }
 
   render(){
+    const position = {
+      0: 'down1',
+      1: 'active',
+      2: 'up1'
+    }
     return(
-      <div className={`project-container ${this.props.project}`}>
+      <div className={`project-text ${position[this.props.place]}`}>
         <div>{this.props.project}</div>
       </div>
     );

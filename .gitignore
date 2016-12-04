@@ -17,3 +17,7 @@ __pycache__
 
 # Ignore API_Keys
 auth.js
+auth.py
+
+# Ignore Python Virtual Environment
+venv/

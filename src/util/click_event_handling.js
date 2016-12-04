@@ -1,7 +1,10 @@
-import { Dropdown } from './state';
+import { Dropdown, ProjectPosition } from './state';
 
 export const initializeClickElements = () => {
   Dropdown.element = document.querySelector('#dropdown');
+  ProjectPosition.next = document.querySelector('.up1');
+  ProjectPosition.active = document.querySelector('.active');
+  ProjectPosition.previous = document.querySelector('.down1');
 }
 
 const toggleVisible = (element) => {
@@ -16,6 +19,8 @@ const hide = (element) => {
     element.className += ' hidden';
   }
 }
+
+
 
 export const handleClick = (event) => {
   // console.log(elem);

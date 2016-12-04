@@ -44,7 +44,7 @@ canvas {
 
 .rotate90{
   transform: rotate(90deg);
-  transition: transform 0.5s
+  transition: transform 0.5s;
 }
 
 .titlebar {
@@ -273,6 +273,7 @@ canvas {
 .project-text {
   width: 100%;
   height: 100%;
+  font-size: 2rem;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -280,7 +281,8 @@ canvas {
 }
 
 .up1 {
-  bottom: 100%
+  top: -100%;
+  visibility: hidden;
 }
 
 .up2 {
@@ -288,7 +290,8 @@ canvas {
 }
 
 .down1 {
-  top: 100%
+  top: 100%;
+  visibility: hidden;
 }
 
 .down2 {
@@ -296,7 +299,8 @@ canvas {
 }
 
 .active {
-  top: 0%
+  top: 0%;
+  transition: top 1s;
 }
 
 .project-image {

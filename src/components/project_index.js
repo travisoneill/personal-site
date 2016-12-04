@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 // import { EosRedux } from './projects/eos_redux';
 import { ProjectDisplay } from './projects/index';
 import { ProjectDescription } from './projects/description';
+// import { ProjectPosition } from '../util/state';
 
 const keywords = {
   paratrooper: ['javascript', 'frontend', 'canvas', 'game'],
@@ -20,30 +21,38 @@ const keywords = {
 export class ProjectIndex extends Component {
   constructor(props) {
     super(props);
-    this.state = { idx: 0 };
+    this.rotate = this.rotate.bind(this);
+    // this.state = { idx: 0 };
   }
 
   rotate(){
-    let idx = (this.state.idx + 1) % 3
-    this.setState({idx: idx});
+
+  }
+
+  componentDidMount(){
+    // this.interval = setInterval(this.rotate, 3000);
+  }
+
+  componentWillUnmount(){
+    // clearInterval(this.interval);
   }
 
   render() {
-    const order = ['paratrooper', 'algoArena', 'eosRedux']
-    const divOrder = {
-      paratrooper: ['eosRedux', 'paratrooper', 'algoArena'],
-      algoArena: ['paratrooper', 'algoArena', 'eosRedux'],
-      eosRedux: ['algoArena', 'eosRedux', 'paratrooper']
-    }
-    let active = order[this.state.idx];
-    let arrangement = divOrder[active]
+    const order = ['paratrooper', 'algoArena', 'eosRedux'];
+    // const divOrder = {
+    //   paratrooper: ['eosRedux', 'paratrooper', 'algoArena'],
+    //   algoArena: ['paratrooper', 'algoArena', 'eosRedux'],
+    //   eosRedux: ['algoArena', 'eosRedux', 'paratrooper']
+    // }
+    // let active = order[this.state.idx];
+    // let arrangement = divOrder[active];
     return(
       <div className='project-index'>
         <div className='column'>
-          <ProjectList projects={arrangement} />
+          <ProjectList projects={order} />
         </div>
         <div className='column'>
-          <ProjectText projects={arrangement} />
+          <ProjectText projects={order.slice().reverse()} />
         </div>
       </div>
     );
@@ -56,11 +65,6 @@ const ProjectList = ({ projects }) => {
   const list = projects.map( (project, idx) => <ProjectDisplay project={project} place={idx} key={idx} /> );
   // console.log(components['eosRedux']);
   // debugger;
-  const position = {
-    0: 'up1',
-    1: 'active',
-    2: 'down1'
-  }
   return(
     <div className='project-list'>
       {list}
@@ -69,11 +73,6 @@ const ProjectList = ({ projects }) => {
 };
 
 const ProjectText = ({ projects }) => {
-  const position = {
-    0: 'down1',
-    1: 'active',
-    2: 'up1'
-  }
   const list = projects.map( (project, idx) => <ProjectDescription project={project} place={idx} key={idx} /> );
   // console.log(components['eosRedux']);
   // debugger;

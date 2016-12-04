@@ -14,6 +14,7 @@ export const ButtonBar = () => {
       <div className='project-selector' id='react' onClick={handleClick}>React</div>
       <div className='project-selector' id='nodejs' onClick={handleClick}>Node.js</div>
       <div className='project-selector' id='opensource' onClick={handleClick}>Open Source</div>
+      <div className='project-selector' id='rotate-projects'>Rotate</div>
     </div>
   )
 };

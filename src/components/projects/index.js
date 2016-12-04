@@ -44,6 +44,7 @@ export class ProjectDisplay extends Component {
       1: 'active',
       2: 'down1'
     }
+    this.urls = urls[this.props.project];
     return(
       <div className={`project-container ${position[this.props.place]}`} onMouseOver={this.pause} onMouseOut={this.restart}>
         <div><img className={`project-image ${this.props.project}`} src={this.urls[this.state.idx]} alt='Algo Arena Screenshot' /></div>

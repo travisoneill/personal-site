@@ -14,3 +14,6 @@ npm-debug.log
 __pycache__
 *.pyc
 .DS_Store
+
+# Ignore API_Keys
+auth.js

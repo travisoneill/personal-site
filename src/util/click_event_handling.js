@@ -9,7 +9,6 @@ export const initializeClickElements = () => {
 const toggleVisible = (element) => {
   let className = element.className.replace(' hidden', '');
   if(className === element.className){ className += ' hidden'; }
-  // debugger;
   element.className = className;
 }
 
